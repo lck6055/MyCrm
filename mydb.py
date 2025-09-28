@@ -6,5 +6,8 @@ conn = mysql.connector.connect(
     passwd='Password123'
 )
 
-conn.execute("create database crm_db")
-print("Execution completed")
+cursor = conn.cursor()
+cursor.execute("CREATE DATABASE IF NOT EXISTS crm_db")
+print("Database creation completed")
+cursor.close()
+conn.close()

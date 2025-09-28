@@ -1,0 +1,17 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">My Crm</a>
+    
+    <div class="d-flex">
+      {% if user.is_authenticated %}
+        <span class="navbar-text me-3">
+          Welcome, {{ user.username }}!
+        </span>
+        <a class="btn btn-outline-light" href="{% url 'logout' %}">Logout</a>
+      {% else %}
+        <a class="btn btn-outline-light me-2" href="{% url 'login' %}">Login</a>
+        <a class="btn btn-outline-light" href="{% url 'signup' %}">Register</a>
+      {% endif %}
+      </div>
+  </div>
+</nav>

@@ -6,3 +6,4 @@ myenv/
 *.log
 *.sqlite3
 /staticfiles/
+cookies.txt

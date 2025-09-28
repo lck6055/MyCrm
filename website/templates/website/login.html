@@ -1,0 +1,50 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+<div class="container mt-3">
+  {% for message in messages %}
+  <div class="alert alert-info">
+    {{ message }}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<div class="d-flex justify-content-center align-items-center vh-100" style="background-color: #f8f9fa;">
+  <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+    <div class="card shadow-sm">
+      <div class="card-body p-4">
+
+        <h2 class="card-title text-center mb-4">Login</h2>
+
+        <form method="POST" autocomplete="off">
+  {% csrf_token %}
+
+  <input type="text" name="fakeusernameremembered" style="display:none">
+  <input type="password" name="fakepasswordremembered" style="display:none">
+
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" id="username" name="username" class="form-control" autocomplete="new-username" placeholder="Username">
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" id="password" name="password" class="form-control" autocomplete="new-password" placeholder="Password">
+  </div>
+  
+  <div>
+    <div class="mb-3 text-center">
+  <p class="mb-0">
+    Don't have an account? 
+    <a href="{% url 'signup' %}">Sign Up</a>
+  </p>
+</div>
+
+<button type="submit" class="btn btn-primary w-100">Login</button>
+</form>
+{% endblock %}
